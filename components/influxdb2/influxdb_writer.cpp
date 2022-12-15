@@ -31,7 +31,7 @@ void InfluxDBWriter::setup() {
   headers.push_back(header);
   if ((this->orgid.length() > 0) && (this->token.length() > 0)) {
     header.name = "Authorization";
-    header.value = std::string("Token " + this->token).c_str();
+    header.value = this->token.c_str();
     headers.push_back(header);
   }
   this->request_->set_headers(headers);

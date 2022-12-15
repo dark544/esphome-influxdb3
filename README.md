@@ -18,7 +18,7 @@ external_components:
 influxdb2:
   host: "influxdb-host"
   orgid: "influx_org"
-  token: "abcdef=="
+  token: "Token abcdef=="
   bucket: "influx_bucket"
   device: "tempsensor"
   sensors:
@@ -35,7 +35,7 @@ influxdb2:
 * **host** (Required, string): Hostname or IP for the InfluxDB server
 * **port** (Optional, int, default: 8086): Port number the InfluxDB server is listening on.
 * **orgid** (Required, string): Organization ID when connecting to influxdb.
-* **token** (Required, string): Token used when connecting to influxdb.
+* **token** (Required, string): Token used when connecting to influxdb. Format: "Token abcdef=="
 * **bucket** (Required, string): Name of influxdb bucket.
 * **device** (Required, string): Name for this device.
 * **send_timeout** (Optional, time, default: "500ms"): Time to wait before sending UDP packets which have not been filled to max size.
