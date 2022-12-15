@@ -1,25 +1,24 @@
 # InfluxDB2 custom component for ESPHome
-Changes from Jepsson/esphome-influxdb:
+Changes from CalvinSchwartz/esphome-influxdb:
+- Made usable as an External Component
+
+Changes from Jepsson/esphome-influxdb to CalvinSchwartz/esphome-influxdb
 - Changed to InfluxDB2 API
 
 ## Installation and Usage
-Just add this repository as an External Component in your ESPHome yaml:
+Just add this repository as an External Component in your ESPHome yaml. Also, add a `influxdb2` section to your ESPHome configuration file to configure the client.
+
+### Example configuration
 
 ```yaml
 external_components:
   - source: github://JeroenvdV/esphome-influxdb2
     components: [ influxdb2 ]
-```
 
-Also, add a `influxdb2` section to your ESPHome configuration file to configure the client.
-
-### Example configuration
-
-```yaml
 influxdb2:
   host: "influxdb-host"
   orgid: "influx_org"
-  token: "Token XXX"
+  token: "abcdef=="
   bucket: "influx_bucket"
   device: "tempsensor"
   sensors:
@@ -36,7 +35,7 @@ influxdb2:
 * **host** (Required, string): Hostname or IP for the InfluxDB server
 * **port** (Optional, int, default: 8086): Port number the InfluxDB server is listening on.
 * **orgid** (Required, string): Organization ID when connecting to influxdb.
-* **token** (Required, string): Token used when connecting to influxdb. Format: "Token XXXX"
+* **token** (Required, string): Token used when connecting to influxdb.
 * **bucket** (Required, string): Name of influxdb bucket.
 * **device** (Required, string): Name for this device.
 * **send_timeout** (Optional, time, default: "500ms"): Time to wait before sending UDP packets which have not been filled to max size.
