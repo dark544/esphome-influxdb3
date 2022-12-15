@@ -2,13 +2,16 @@
 Changes from Jepsson/esphome-influxdb:
 - Changed to InfluxDB2 API
 
-## Installation
-Add this repository as an submodule in your esphome custom_compontents;
-`git clone https://github.com/CalvinSchwartz/esphome-influxdb custom_components/influxdb2`
+## Installation and Usage
+Just add this repository as an External Component in your ESPHome yaml:
 
-## Usage
+```yaml
+external_components:
+  - source: github://JeroenvdV/esphome-influxdb2
+    components: [ influxdb2 ]
+```
 
-Add `influxdb2` section to your ESPHome configuration file.
+Also, add a `influxdb2` section to your ESPHome configuration file to configure the client.
 
 ### Example configuration
 
