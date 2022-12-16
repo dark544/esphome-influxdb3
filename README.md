@@ -1,6 +1,12 @@
 # InfluxDB2 custom component for ESPHome
+
+Using this component, ESPHome-based devices can submit their sensor readings directly to InfluxDB. This removes unnecessary steps and points of failure.
+
+This repository is based on a fork of previous work, for which much credit is due. 
+
 Changes from CalvinSchwartz/esphome-influxdb:
 - Made usable as an External Component
+- Documentation updates
 
 Changes from Jepsson/esphome-influxdb to CalvinSchwartz/esphome-influxdb
 - Changed to InfluxDB2 API
@@ -48,3 +54,7 @@ influxdb2:
 * **ignore** (Optional, boolean, default: False): Whether or not to include updates for this sensor.
 * **measurement** (Optional, string): Name of measurements with update from this sensor. Defaults to the sanitized name of the sensor.
 * **tags** (Optional, mapping, default: {}): Additional tags added for this sensor.
+
+#### TO DO 
+
+* Add a readings cache to retry when calls fail, so that the system is robust against either InfluxDB or the network being down for a while.
