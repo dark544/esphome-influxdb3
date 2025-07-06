@@ -19,7 +19,11 @@ void InfluxDBWriter::setup() {
     objs.push_back(fun());
 
   this->service_url = "http://" + this->host + ":" + to_string(this->port) +
-                      "/api/v2/write?org=" + this->orgid + "&bucket=" + this->bucket + "&precision=ns";
+                      "/api/v3/write_lp?db=" + this->bucket + "&precision=nanosecond";
+
+  if (!this->orgid.empty()) {
+    this->service_url += "&org=" + this->orgid;
+  }
 
   this->request_ = new http_request::HttpRequestComponent();
   this->request_->setup();
@@ -29,7 +33,7 @@ void InfluxDBWriter::setup() {
   header.name = "Content-Type";
   header.value = "text/plain";
   headers.push_back(header);
-  if ((this->orgid.length() > 0) && (this->token.length() > 0)) {
+  if (!this->token.empty()) {
     header.name = "Authorization";
     header.value = this->token.c_str();
     headers.push_back(header);
