@@ -1,4 +1,4 @@
-# InfluxDB2 custom component for ESPHome
+# InfluxDB3 custom component for ESPHome
 
 Using this component, ESPHome-based devices can submit their sensor readings directly to InfluxDB. This removes unnecessary steps and points of failure.
 
@@ -8,20 +8,23 @@ Changes from CalvinSchwartz/esphome-influxdb:
 - Made usable as an External Component. Benefit: installation is handled by ESPHome, without manual steps
 - Documentation updates to reflect earlier changes
 
-Changes from Jepsson/esphome-influxdb to CalvinSchwartz/esphome-influxdb
+Changes from Jepsson/esphome-influxdb to CalvinSchwartz/esphome-influxdb2
 - Changed to InfluxDB2 API
+ 
+Changes from Jepsson/esphome-influxdb2 to dark544/esphome-influxdb3
+- Changed to InfluxDB3 API
 
 ## Installation and Usage
-Just add this repository as an External Component in your ESPHome yaml. Also, add a `influxdb2` section to your ESPHome configuration file to configure the client.
+Just add this repository as an External Component in your ESPHome yaml. Also, add a `influxdb3` section to your ESPHome configuration file to configure the client.
 
 ### Example configuration
 
 ```yaml
 external_components:
-  - source: github://JeroenvdV/esphome-influxdb2
-    components: [ influxdb2 ]
+  - source: github://dark544/esphome-influxdb3
+    components: [ influxdb3 ]
 
-influxdb2:
+influxdb3:
   host: "influxdb-host"
   orgid: "influx_org"
   token: "Token abcdef=="
